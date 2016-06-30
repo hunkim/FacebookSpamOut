@@ -20,6 +20,8 @@ $spam_count = 0;
 foreach ($feedArr->data as $key => $value) {
 	$index++;
 
+    echo ("Checking post: https://facebook.com/" . $value->id . " ...\n");
+
 	// test (delete post with [deleteme])
 	// TODO: need to implement text based spam filtering
 	if (strstr($value->message, "[deleteme]")!==FALSE) {
