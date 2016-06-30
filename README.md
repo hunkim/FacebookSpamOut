@@ -15,6 +15,7 @@
 
 * Add your group numeric ID. If you don't know, use this service:
     - http://findmyfbid.com/
+
 #### Google Vision API
 Get an API Key from https://cloud.google.com/vision/docs/auth-template/cloud-api-auth#set_up_an_api_key.
 
