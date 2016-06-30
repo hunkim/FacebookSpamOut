@@ -1,0 +1,11 @@
+<?php
+const ADMIN_EMAIL = "your email";
+
+const GOOGLE_VISION_KEY = 'your google vision api key';
+const GOOGLE_VISION_END_POINT = "https://vision.googleapis.com/v1/images:annotate?key=";
+
+const FB_GROUP_ID = 'your group/page numeric id';
+const FB_ACCESS_TOKEN ='your facebook access token';
+
+const SHOULD_DELETE = true;
+?>
