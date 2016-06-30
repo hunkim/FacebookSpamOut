@@ -5,6 +5,11 @@
 Get Facebook temp token at:
     - https://developers.facebook.com/tools/explorer/
 
+ Permissions:
+   * To delete a user's post, a user access token with publish_actions permission is required.
+   * To delete a Page's post a Page access token and publish_pages permission is required.
+   * To delete a User's post on Page a Page access token is required.
+
 Extend Access Token at:
     - https://developers.facebook.com/tools/accesstoken/
 
