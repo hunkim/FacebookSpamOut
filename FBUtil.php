@@ -24,7 +24,7 @@ function feedFB($group_id, $since_strtotime) {
 	$url = "https://graph.facebook.com/" .
 			$group_id.
 			"/feed?fields=picture,caption,name,message,from".
-			"&limit=9999".
+			"&limit=999".
 			"&since=" . $since_strtotime . 
 			"&access_token=" . FB_ACCESS_TOKEN;
 

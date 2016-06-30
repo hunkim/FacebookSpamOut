@@ -10,8 +10,20 @@ require_once ("gVisionAPI.php");
 
 date_default_timezone_set('UTC');
 
-// get FB feed first, assuming the cron job is at least every hour
-$fbFeed = feedFB(FB_GROUP_ID, strtotime("-1 hour"));
+// Get group id
+$fb_group_id = FB_GROUP_ID;
+$time_str = "-100 minutes";
+
+if ($argc >= 2) {
+	$fb_group_id = $argv[1];
+
+	if ($argc == 3) {
+	    $time_str = $argv[2];
+	}
+} 
+
+// get FB feed first, assuming the cron job is at least 10 minutes
+$fbFeed = feedFB($fb_group_id, strtotime($time_str));
 $feedArr = json_decode($fbFeed);
 
 // loop and check the message and image
@@ -20,7 +32,7 @@ $spam_count = 0;
 foreach ($feedArr->data as $key => $value) {
 	$index++;
 
-    echo ("Checking post: https://facebook.com/" . $value->id . " ...\n");
+    echo ("Checking post: https://facebook.com/" . $value->id . "\n");
 
 	// test (delete post with [deleteme])
 	// TODO: need to implement text based spam filtering
@@ -32,10 +44,11 @@ foreach ($feedArr->data as $key => $value) {
 
 	// Let's focus on the picture first.
 	if (!isset($value->picture)) {
+		echo (" - No picture!\n");
 		continue;
 	}
 
-    echo (" - Checking the picture: " . $value->picture . "...\n");
+    echo (" - Checking the picture: " . $value->picture);
 
 	// Check with google vision API
 	$imgRes = doGoogleVisionRequest($value->picture);
@@ -43,7 +56,10 @@ foreach ($feedArr->data as $key => $value) {
 	$value->gRes = $imgResArr->responses[0]->safeSearchAnnotation;
 
 	// image spam??
-	if (!is_safe($value->gRes)) {
+	if (is_safe($value->gRes)) {
+		echo("    [OK]\n");
+	} else {
+		echo("    [SPAM]\n");
 	    $spam_count++;
 		reportAndDelete($value);		
 	}
