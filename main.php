@@ -35,6 +35,8 @@ foreach ($feedArr->data as $key => $value) {
 		continue;
 	}
 
+    echo (" - Checking the picture: " . $value->picture . "...\n");
+
 	// Check with google vision API
 	$imgRes = doGoogleVisionRequest($value->picture);
 	$imgResArr = json_decode($imgRes);

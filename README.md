@@ -12,3 +12,5 @@ Add your group id
 
 ## Run main.php
 Run main.php prediocally. (At least every hour.)
+
+*/5 * * * * cd /home/ubuntu/FacebookSpamOut/; php main.php
