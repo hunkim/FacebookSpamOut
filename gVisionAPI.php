@@ -2,11 +2,17 @@
 require_once ("const.php");
 
 if ($argv[0]=="gVisionAPI.php") {
-        _test(); 
+    $img = "http://home.cse.ust.hk/~hunkim/images/Sungkim2.png";
+    if ($argc==2) {
+        $img = $argv[1];
+    }
+
+    _test($img);
 }
 
-function _test() {
-    $res = doGoogleVisionRequest("http://home.cse.ust.hk/~hunkim/images/Sungkim2.png");
+function _test($img) {
+    echo("Checking $img\n");
+    $res = doGoogleVisionRequest($img);
     echo($res);
 }
 
