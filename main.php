@@ -43,15 +43,15 @@ foreach ($feedArr->data as $key => $value) {
 	}
 
 	// Let's focus on the picture first.
-	if (!isset($value->picture)) {
-		echo (" - No picture!\n");
+	if (!isset($value->full_picture)) {
+		echo (" - No full_picture!\n");
 		continue;
 	}
 
-    echo (" - Checking the picture: " . $value->picture);
+    echo (" - Checking the full_picture: " . $value->full_picture);
 
 	// Check with google vision API
-	$imgRes = doGoogleVisionRequest($value->picture);
+	$imgRes = doGoogleVisionRequest($value->full_picture);
 	$imgResArr = json_decode($imgRes);
 	$value->gRes = $imgResArr->responses[0]->safeSearchAnnotation;
 
