@@ -102,8 +102,8 @@ function is_safe_likelihood($likelihood) {
 */
 function is_safe($res) {
 	return is_safe_likelihood($res->adult) &&
-		is_safe_likelihood($res->spoof) &&
-		is_safe_likelihood($res->medical) &&
+		//is_safe_likelihood($res->spoof) &&   // Check for adults and violence 
+		//is_safe_likelihood($res->medical) &&
 		is_safe_likelihood($res->violence); 
 }
 
