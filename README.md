@@ -64,4 +64,4 @@ php main.php 174499879257223 "-5 minutes"
 ```
 ## Contribution
 
-We welcome your comments and PRs!
+We always welcome your comments and PRs!

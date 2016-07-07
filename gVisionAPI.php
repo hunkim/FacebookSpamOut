@@ -14,7 +14,7 @@ function _test($img) {
     echo("Checking $img\n");
     $res = doGoogleVisionRequest($img);
     echo($res);
-}
+} 
 
 /* https://cloud.google.com/vision/reference/rest/v1/images/annotate#type
 TYPE_UNSPECIFIED        Unspecified feature type.
