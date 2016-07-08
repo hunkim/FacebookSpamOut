@@ -74,8 +74,11 @@ function reportAndDelete($post) {
 		mail(ADMIN_EMAIL, "Facebook SPAM Warning!", print_r($post, true));
 
 		if (SHOULD_DELETE) {
-			// delete (be careful! It really deletes.)
+			// delete (be careful! It really deletes the posts.)
 			deletePost($post->id);
+			echo("    [DELETED!]\n");
+		} else {
+			echo("    [Did not delete!] To automatically delete set 'SHOULD_DELETE' true.\n");
 		}
 	}
 }
