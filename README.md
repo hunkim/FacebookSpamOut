@@ -17,7 +17,7 @@
     - http://findmyfbid.com/
 
 #### Google Vision API
-Get an API Key. See https://cloud.google.com/vision/docs/auth-template/cloud-api-auth#set_up_an_api_key.
+Get an API Key. See https://cloud.google.com/vision/docs/common/auth#set_up_an_api_key.
 
 ## Module (configuration) testing
 Make sure each module is working OK.
